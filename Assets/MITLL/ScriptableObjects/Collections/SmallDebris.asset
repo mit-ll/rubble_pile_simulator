@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b85770997fb06de4b9c7a5a4e2e51e67, type: 3}
+  m_Name: SmallDebris
+  m_EditorClassIdentifier: 
+  weightedItems:
+  - {fileID: 11400000, guid: 3cc2b5fa30411ae44a8038831f7a7b96, type: 2}
+  - {fileID: 11400000, guid: 1260a3d90c2301e4bbe99cc6356671c3, type: 2}
+  - {fileID: 11400000, guid: e53aef3b6a912994c84da5d8f198937c, type: 2}
+  - {fileID: 11400000, guid: 1eff6c7676835c743a156a7b7722e4d9, type: 2}
+  - {fileID: 11400000, guid: d7cd6ac8aebc77d4ba0997e7649960a4, type: 2}
+  - {fileID: 11400000, guid: 79d4c0dc265516f4ba0ed3d11da74b1f, type: 2}
+  - {fileID: 11400000, guid: fc594282692741d4d9cf874837c72768, type: 2}
+  - {fileID: 11400000, guid: 67818f0a36a88f944989d8c3e657d04f, type: 2}
+  - {fileID: 11400000, guid: e4e87f71af292f74aabbc08488ee18ba, type: 2}
+  - {fileID: 11400000, guid: df07e01e43bd98346b8c0f3d141fb82a, type: 2}
+  - {fileID: 11400000, guid: afb624d9cd59e894c83e3ea5214b789e, type: 2}
+  - {fileID: 11400000, guid: 18d393424a2f0af4f8382604cf24d052, type: 2}

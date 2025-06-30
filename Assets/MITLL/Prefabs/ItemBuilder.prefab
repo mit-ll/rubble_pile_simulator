@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3470663273331492502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4040971014096137552}
+  - component: {fileID: 5782395754428318058}
+  m_Layer: 0
+  m_Name: ItemBuilder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4040971014096137552
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3470663273331492502}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 858.8844, y: 65.03246, z: 1152.9508}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5782395754428318058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3470663273331492502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0135a36d7e781e48b9a0320b3088bed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weights:
+  - 1
+  - 2
+  - 1
+  - 1
+  - 2
+  gameObjects:
+  - {fileID: 8147795455637951219, guid: e35b1983a28a5f142983c31ec69e916d, type: 3}
+  - {fileID: 6145160246476232636, guid: e70e0f27d60578b4bae822b3daea51e9, type: 3}
+  - {fileID: 7770037025014356883, guid: 65133419ff0ed02458fd9165d1f4642a, type: 3}
+  - {fileID: 1388565601721429723, guid: 0778d23981064a9459b4b68247ef2af6, type: 3}
+  - {fileID: 4166892837909866109, guid: 5f5bfd9f12cf49c99ae9bec7a8d42d76, type: 3}
+  csvTextAsset: {fileID: 4900000, guid: 91481432c87c99640a274883f34995e1, type: 3}
+  prefabPath: Assets/Resources/Prefabs
+  collectionName: SmallDebris
+  itemsPath: Assets/MITLL/ScriptableObjects/Items/SmallDebris

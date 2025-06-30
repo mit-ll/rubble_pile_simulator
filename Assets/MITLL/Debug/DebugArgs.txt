@@ -1,0 +1,1 @@
+-randomseed 0 -rosip 127.0.0.1 -rosport 10000
