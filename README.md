@@ -57,6 +57,9 @@ position controls the center position of the spawn volume, scale controls the vo
 * numobjs : (int) | sets the number of objects per layer that spawn
 * exportstl : (bool) | 1 enables export of pile stl
 
+> [!IMPORTANT]  
+> The `exportstl` is disabled for the provided release binaries due to licensing restrictions. To use the export STL function, you will need to build the project in Unity.
+
 ### Light args
 * setlightrot : (bool) | 1 enables setting of light rotation otherwise it is random
 * lighttype : (int) | 0 spot, 1 directional, 2 point
