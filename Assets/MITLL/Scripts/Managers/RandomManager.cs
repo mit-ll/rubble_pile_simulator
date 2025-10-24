@@ -52,6 +52,7 @@ public class RandomManager : MonoBehaviour
     {
         //Only access customargs after awake
         seed = (int)CustomArgs.GetWithDefault("randomseed", 0);
+        if (seed == 0) { seed = new Random().Next(148000);}
         randomStatic = new Random(seed);
         randomDynamic = new Random(seed);
         isInitialized = true;

@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/MITLL/Scenes/MainScene.unity
-    guid: 8aae0a0a5631f98468432e3cb79b1df1
+    path: Assets/MITLL/Scenes/MainScene_OS.unity
+    guid: fe0fbad6232b57049885a432b6a53acb
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 8e37b90f6a41f6f4ba5be967409fa9c0,
       type: 2}

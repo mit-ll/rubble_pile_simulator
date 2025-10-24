@@ -22,6 +22,8 @@ public class UIController : MonoBehaviour
     public GameObject loadingUI;
     public TextMeshPro loadingText;
     public Slider LoadingBar;
+
+    public GameObject instructionUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -73,5 +75,10 @@ public class UIController : MonoBehaviour
                 TickBar();
                 yield return new WaitForSeconds(RandomManager.Instance.GetDynamicFloat(1f, 3f));
             }
+        }
+
+        public void ToggleInstructions()
+        {
+            instructionUI.SetActive(!instructionUI.activeSelf);
         }
 }

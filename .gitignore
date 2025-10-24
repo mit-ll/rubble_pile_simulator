@@ -20,6 +20,9 @@
 /[Uu]ser[Ss]ettings/
 
 /[Aa]ssets/TextMesh Pro/
+/[Aa]ssets/TextMesh Pro.meta
+/[Aa]ssets/3rdPartyContent/
+/[Aa]ssets/3rdPartyContent.meta
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data

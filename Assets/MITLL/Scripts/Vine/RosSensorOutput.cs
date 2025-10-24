@@ -119,6 +119,7 @@ public class RosSensorOutput : MonoBehaviour
         RenderTexture.active = rt;
         ImageMsg imageMsg = camTexture.ToImageMsg(new HeaderMsg());
         ros.Publish(topicName, imageMsg);
+        Destroy(camTexture);
     }
     
     

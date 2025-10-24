@@ -25,6 +25,7 @@ public class VineController : MonoBehaviour
     private bool isLightOn = false;
     private Vector3 initialPos;
     private Quaternion initialRot;
+    public UIController uiController;
 
     private RandomManager random;
     // Start is called before the first frame update
@@ -34,6 +35,7 @@ public class VineController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         initialPos = transform.position;
         initialRot = transform.rotation;
+        uiController = FindObjectOfType<UIController>();
     }
 
     private void OnEnable()
@@ -128,5 +130,10 @@ public class VineController : MonoBehaviour
 
         vineLight.spotAngle -= lightAngleIncrement;
 
-    }    
+    }
+
+    public void ToggleInstructions()
+    {
+        uiController.ToggleInstructions();
+    }
 }

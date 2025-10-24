@@ -28,6 +28,10 @@ public class JoyInput : MonoBehaviour
     private InputAction lightIncrementAction;
     private InputAction lightDecrementAction;
     private InputAction randomizePositionAction;
+    private InputAction toggleLightAction;
+    private InputAction exportSTLAction;
+
+    private InputAction instructionsAction;
     // Start is called before the first frame update
 
     private void Awake()
@@ -59,6 +63,13 @@ public class JoyInput : MonoBehaviour
         randomizePositionAction.Enable();
         randomizePositionAction.performed += RandomizePosition;
 
+        toggleLightAction = sproutControls.Player.ToggleLight;
+        toggleLightAction.Enable();
+        toggleLightAction.performed += LightToggle;
+        
+        instructionsAction = sproutControls.Player.Instructons;
+        instructionsAction.Enable();
+        instructionsAction.performed += Instructions;
     }
 
     private void RandomizePosition(InputAction.CallbackContext context)
@@ -74,6 +85,8 @@ public class JoyInput : MonoBehaviour
         lightDecrementAction.Disable();
         lightIncrementAction.Disable();
         randomizePositionAction.Disable();
+        toggleLightAction.Disable();
+        instructionsAction.Disable();
     }
 
     // Update is called once per frame
@@ -93,6 +106,11 @@ public class JoyInput : MonoBehaviour
            vine.EmergencyStop();
        }
 
+       private void LightToggle(InputAction.CallbackContext context)
+       {
+           vine.ToggleLight();
+       }
+
        private void LightIncrement(InputAction.CallbackContext context)
        {
            vine.ChangeLightIntensity(true);
@@ -102,5 +120,11 @@ public class JoyInput : MonoBehaviour
     {
         vine.ChangeLightIntensity(false);
     }
+
+    private void Instructions(InputAction.CallbackContext context)
+    {
+        vine.ToggleInstructions();
+    }
+
     
 }

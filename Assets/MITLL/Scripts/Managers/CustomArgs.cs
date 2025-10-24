@@ -12,6 +12,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using System.Text;
 using UnityEngine;
 
@@ -121,9 +123,14 @@ public class CustomArgs : MonoBehaviour
 
                 string value = args[j].Trim().ToLower();
 
+                float result;
                 if (value.StartsWith(argumentPrefix))
-                {
-                    break;
+                {   
+                    // Try to read in negative numbers
+                    if (!float.TryParse(value, out result))
+                    {
+                        break;
+                    }
                 }
 
                 sb.Append(value);
@@ -140,8 +147,13 @@ public class CustomArgs : MonoBehaviour
         //Catch IP address
         if (value.Contains("."))
         {
-            ParseAsIP(value);
-            return;
+            var floatCheck = value.Count(c => c == '.') == 1;
+            // If it is not just a float continue
+            if (!floatCheck)
+            {
+                ParseAsIP(value);
+                return;
+            }
         }
         //If key exists from getwithdefault overwrite it
         if (argDict.ContainsKey(key))
@@ -178,5 +190,10 @@ public class CustomArgs : MonoBehaviour
         argDict.Add(_key, value);
         
         return value;
+    }
+
+    public static bool FloatToBool(float value)
+    {
+        return value != 0;
     }
 }

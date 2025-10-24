@@ -49,6 +49,7 @@ public class RosPs5 : MonoBehaviour
         Move(joy);
         EmergencyStop(joy);
         RandomizePosition(joy);
+        ToggleInstructions(joy);
     }
 
     private void ChangeLightFocus()
@@ -93,6 +94,13 @@ public class RosPs5 : MonoBehaviour
         }
     }
     
+    private void ToggleInstructions(JoyMsg joy)
+    {
+        if (joy.buttons[17] == 1)
+        {
+            vine.ToggleInstructions();
+        }
+    }
     //The ROS node does not constantly update so we need to store the last msg
     //in order to prevent stuttering and allow for smooth control.
     void Move(JoyMsg joy)

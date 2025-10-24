@@ -1,1 +1,1 @@
--randomseed 0 -rosip 127.0.0.1 -rosport 10000
+-randomseed 1 -rosip 127.0.0.1 -rosport 10000 -setlightrot 1 -lightrotx 120.5 -lightroty 30 -lightrotz -25 -setlightpos 1 -lightposx 10 -lightposy -15 -lightposz 309 -fogintensity 0.4 -fogdensity 0.2 -exportstl 1

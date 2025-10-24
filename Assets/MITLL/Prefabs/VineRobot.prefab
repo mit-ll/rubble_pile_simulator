@@ -331,7 +331,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002210974466263245}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -432,6 +432,7 @@ MonoBehaviour:
   vineLight: {fileID: 1648194165985350282}
   lightAngleIncrement: 0.2
   lightIntensityIncrement: 0.2
+  uiController: {fileID: 0}
 --- !u!114 &69352622042259867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,8 +526,8 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
+  m_SpotAngle: 90.6
+  m_InnerSpotAngle: 80.8
   m_CookieSize: 10
   m_Shadows:
     m_Type: 1

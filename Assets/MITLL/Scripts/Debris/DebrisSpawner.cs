@@ -25,14 +25,32 @@ public class DebrisSpawner : MonoBehaviour
     public int numPiles;
     private Bounds spawnBounds;
     private List<GameObject> objList = new List<GameObject>();
+    private CustomArgs customArgs;
+    private bool exportSTL;
     
     
     // Start is called before the first frame update
     void Start()
     {
+        customArgs = CustomArgs.Instance;
 
-        Vector3 SPAWN_START_POS = new Vector3(0,10,0);
-        Vector3 SPAWN_BOUNDS_SIZE =  new Vector3(10,10,10);
+        numToSpawn = (int)CustomArgs.GetWithDefault("numobjs", 300);
+        numPiles = (int)CustomArgs.GetWithDefault("numlayers", 3);
+
+        exportSTL = CustomArgs.FloatToBool(CustomArgs.GetWithDefault("exportstl", 0));
+        
+        Vector3 SPAWN_START_POS = new Vector3(
+            CustomArgs.GetWithDefault("spawnposx", 0),
+            CustomArgs.GetWithDefault("spawnposy", 15),
+            CustomArgs.GetWithDefault("spawnposz", 0)
+        );
+            
+            
+        Vector3 SPAWN_BOUNDS_SIZE =  new Vector3(
+            CustomArgs.GetWithDefault("spawnboundx", 10),
+            CustomArgs.GetWithDefault("spawnboundy", 10),
+            CustomArgs.GetWithDefault("spawnboundz", 10)
+            );
 
         random = RandomManager.Instance;
         if (SpawnVolume == null)
@@ -201,14 +219,45 @@ public class DebrisSpawner : MonoBehaviour
 
     public void FreezeDebris()
     {
+        List<GameObject> outOfBounds = new List<GameObject>();
         foreach (GameObject go in objList)
         {
+            if (go.transform.position.y < -0.5f)
+            {
+                outOfBounds.Add(go);
+            }
+            
             Rigidbody rb = go.GetComponent<Rigidbody>();
             Destroy(rb);
             go.isStatic = true;
         }
 
         GameObject root = new GameObject();
+        root.name = "root";
+        root.gameObject.AddComponent<MeshFilter>();
+
+        objList.RemoveAll(go => outOfBounds.Contains(go));
+        for (int i = 0; i < outOfBounds.Count; i++)
+        {
+            Destroy(outOfBounds[i]);
+        }
+
+        if (exportSTL)
+        {
+            SceneToSTLExporter.ExportSceneToSTL();
+        }
+
+        foreach (var go in objList)
+        {
+            go.transform.parent = root.transform;
+        }
+        
         StaticBatchingUtility.Combine(objList.ToArray(), root);
+        
+    }
+
+    public List<GameObject> GetDebrisObj()
+    {
+        return objList;
     }
 }

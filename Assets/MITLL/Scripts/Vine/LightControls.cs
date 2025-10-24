@@ -18,6 +18,8 @@ public class LightControls : MonoBehaviour
     private Transform lightTransform;
 
     private Light lightObj;
+    private bool setLightPos;
+    private bool setLightRot;
 
     private CustomArgs customArgs;
 
@@ -30,6 +32,7 @@ public class LightControls : MonoBehaviour
         lightTransform = gameObject.transform;
         lightObj = GetComponent<Light>();
         RandomizeRotation();
+        InitializeLight();
     }
 
     private void InitializeLight()
@@ -51,15 +54,68 @@ public class LightControls : MonoBehaviour
                 break;
         }
         
-        lightObj.intensity = CustomArgs.GetWithDefault("lightintensity", 10f);
+        lightObj.intensity = CustomArgs.GetWithDefault("lightintensity", 2f);
+
+        // check for position and rotation
+        setLightPos = CustomArgs.FloatToBool(CustomArgs.GetWithDefault("setlightpos", 0f));
+        setLightRot = CustomArgs.FloatToBool(CustomArgs.GetWithDefault("setlightrot", 0f));
+
+        if (setLightPos)
+        {
+            SetPos(GetPosFromArg());
+        }
+
+        if (setLightRot)
+        {
+            SetRot(GetRotFromArg()); 
+        }
     }
     
+    public void SetPos(Vector3 pos)
+    {
+        lightTransform.position = pos;
+    }
+    public void SetRot(Vector3 rot)
+    {
+        lightTransform.rotation = Quaternion.Euler(rot);
+    }
+    public void SetRot(Quaternion quat)
+    {
+        lightTransform.rotation = quat;
+    }
+
+    public void SetPosRot(Vector3 pos, Vector3 rot)
+    {
+        lightTransform.position = pos;
+        lightTransform.rotation = Quaternion.Euler(rot);
+    }
     public void SetPosRot(Vector3 pos, Quaternion quat)
     {
         lightTransform.position = pos;
         lightTransform.rotation = quat;
+    } 
+    public Vector3 GetPosFromArg()
+    {
+        Vector3 lightPos = Vector3.zero;
+
+        lightPos.x = CustomArgs.GetWithDefault("lightposx", 0f);
+        lightPos.y = CustomArgs.GetWithDefault("lightposy", 0f);
+        lightPos.z = CustomArgs.GetWithDefault("lightposz", 0f);
+
+        return lightPos;
     }
 
+    public Vector3 GetRotFromArg()
+    {
+        Vector3 lightRot = Vector3.zero;
+            
+        lightRot.x = CustomArgs.GetWithDefault("lightrotx", 0f);
+        lightRot.y = CustomArgs.GetWithDefault("lightroty", 0f);
+        lightRot.z = CustomArgs.GetWithDefault("lightrotz", 0f);
+
+        return lightRot;
+    }
+    
     public void RandomizeRotation()
     {
         float x = randomManager.GetDynamicFloat(0f, 180f);
