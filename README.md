@@ -1,6 +1,20 @@
-# SPROUT Sim
+# RubbleSim
 
-Unity simulation framework for validating SPROUT mapping capability
+![RubbleSim Accumulation](imgs/rubblesim.gif?raw=true "It's raining debris!")
+
+Unity simulation framework for confined space mapping. This simulator was published in the proceedings of the _2025 IEEE International Symposium on Safety, Security, and Rescue Robotics_. If you use or extend the simulator, please cite the publication.
+
+[Paper on Arxiv](https://arxiv.org/abs/2510.20529)
+
+```
+@inproceedings{frost2025rubblesim,
+      title={RubbleSim: A Photorealistic Structural Collapse Simulator for Confined Space Mapping}, 
+      author={Constantine Frost and Chad Council and Margaret McGuinness and Nathaniel Hanson},
+      year={2025},
+      booktitle={IEEE International Symposium on Safety Security Rescue Robotics (SSRR)},
+      organization={IEEE}
+}
+```
 
 ## Requirements
 
